@@ -1,0 +1,175 @@
+/* 男孩走路效果设置 */
+/* 主屏滚动效果设置 */
+.boy,
+.screen{
+	-webkit-transition-property: all;
+	   -moz-transition-property: all;
+	        transition-property: all;
+	-webkit-transition-timing-function: linear;
+	   -moz-transition-timing-function: linear;
+	        transition-timing-function: linear;
+}
+
+/* 男孩动画Class设置 */
+.boy_status_walking{
+	-webkit-animation: boy-walking 950ms steps(1,start) infinite;
+	   -moz-animation: boy-walking 950ms steps(1,start) infinite;
+	        animation: boy-walking 950ms steps(1,start) infinite;
+}
+
+/* 男孩动画定义 */
+@-webkit-keyframes boy-walking {
+    0% { background-position: -0px -291px; }
+    25% { background-position: -602px -0px; }
+    50% { background-position: -302px -291px; }
+    75% { background-position: -151px -291px; }
+    100% { background-position: -0px -291px; }
+}
+
+@-moz-keyframes boy-walking {
+    0% { background-position: -0px -291px; }
+    25% { background-position: -602px -0px; }
+    50% { background-position: -302px -291px; }
+    75% { background-position: -151px -291px; }
+    100% { background-position: -0px -291px; }
+}
+@keyframes boy-walking {
+    0% { background-position: -0px -291px; }
+    25% { background-position: -602px -0px; }
+    50% { background-position: -302px -291px; }
+    75% { background-position: -151px -291px; }
+    100% { background-position: -0px -291px; }
+}
+
+/* 第一屏 太阳落下动画 */
+.screen-1__sun_status_move{
+	-webkit-transition: transform 20s;
+	   -moz-transition: transform 20s;
+	        transition: transform 20s;
+	-webkit-transform: translate(-2000px, 400px);
+	   -moz-transform: translate(-2000px, 400px);
+	        transform: translate(-2000px, 400px);
+}
+
+/* 第一屏 云朵漂浮动画Class设置 */
+.screen-1__cloud-1_status_move{
+	-webkit-animation: cloud-sm 30s infinite;
+	   -moz-animation: cloud-sm 30s infinite;
+	        animation: cloud-sm 30s infinite;
+}
+
+.screen-1__cloud-2_status_move{
+	-webkit-animation: cloud-bg 60s infinite;
+	   -moz-animation: cloud-bg 60s infinite;
+	        animation: cloud-bg 60s infinite;
+}
+
+/* 第一屏 云朵漂浮动画定义 */
+@-webkit-keyframes cloud-sm {
+	0% { left: -5%; }
+	100% { left: 100%; }
+}
+@-moz-keyframes cloud-sm {
+	0% { left: -5%; }
+	100% { left: 100%; }
+}
+@keyframes cloud-sm {
+	0% { left: -5%; }
+	100% { left: 100%; }
+}
+@-webkit-keyframes cloud-bg {
+	0% { right: -5%; }
+	100% { right: 100%; }
+}
+@-moz-keyframes cloud-bg {
+	0% { right: -5%; }
+	100% { right: 100%; }
+}
+@keyframes cloud-bg {
+	0% { right: -5%; }
+	100% { right: 100%; }
+}
+
+/* 第二屏开关门 */
+.screen-2__door-left,
+.screen-2__door-right{
+	-webkit-transition: all 2s;
+	   -moz-transition: all 2s;
+	        transition: all 2s;
+}
+
+.screen-2__door-left_status_open {
+    left: -50%;
+}
+
+.screen-2__door-right_status_open {
+    left: 100%;
+}
+
+/* 第二屏亮灯 */
+.screen-2_status_bright{
+	background: url('../images/QixiB-bright.png') left top no-repeat;
+	background-size: 100% 100%;
+}
+
+/* 男孩出商店带花设置 */
+.boy_status_flower{
+	-webkit-animation: boy-flower 950ms step-start infinite;
+	   -moz-animation: boy-flower 950ms step-start infinite;
+	        animation: boy-flower 950ms step-start infinite;
+}
+
+@-webkit-keyframes boy-flower {
+	0% { background-position: -453px -0px; }
+	25% { background-position: -904px -0px; }
+	50% { background-position: -451px -0px; }
+	75% { background-position: -753px -0px; }
+	100% { background-position: -300px -0px; }
+}
+
+@-moz-keyframes boy-flower {
+	0% { background-position: -453px -0px; }
+	25% { background-position: -904px -0px; }
+	50% { background-position: -451px -0px; }
+	75% { background-position: -753px -0px; }
+	100% { background-position: -300px -0px; }
+}
+
+@keyframes boy-flower {
+	0% { background-position: -453px -0px; }
+	25% { background-position: -904px -0px; }
+	50% { background-position: -451px -0px; }
+	75% { background-position: -753px -0px; }
+	100% { background-position: -300px -0px; }
+}
+
+/* 第二屏鸟动画 */
+.screen-2__bird_status_fly{
+	-webkit-animation: bird-fly 400ms step-start infinite;
+	   -moz-animation: bird-fly 400ms step-start infinite;
+	        animation: bird-fly 400ms step-start infinite;
+	-webkit-transition: transform 10s linear;
+	   -moz-transition: transform 10s linear;
+	        transition: transform 10s linear;
+}
+
+@-webkit-keyframes bird-fly {
+	0% { background-position: -182px 0px; }
+	50% { background-position: 0px 0px; }
+	75% { background-position: -91px 0px; }
+	100% { background-position: -182px 0px; }
+}
+
+@-moz-keyframes bird-fly {
+	0% { background-position: -182px 0px; }
+	50% { background-position: 0px 0px; }
+	75% { background-position: -91px 0px; }
+	100% { background-position: -182px 0px; }
+}
+
+@keyframes bird-fly {
+	0% { background-position: -182px 0px; }
+	50% { background-position: 0px 0px; }
+	75% { background-position: -91px 0px; }
+	100% { background-position: -182px 0px; }
+}
