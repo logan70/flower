@@ -367,3 +367,60 @@
 	83.5% {background-position: -753px -291px;}
 	100% {background-position: -603px -291px;}
 }
+
+/* 飘花 */
+.snow__item{
+	-webkit-animation: snow-float 20s;
+	   -moz-animation: snow-float 20s;
+	        animation: snow-float 20s;
+	-webkit-transition-property: all;
+	   -moz-transition-property: all;
+	        transition-property: all;
+	-webkit-transition-timing-function: ease-out;
+	   -moz-transition-timing-function: ease-out;
+	        transition-timing-function: ease-out;
+}
+
+.snow__item_status_float{
+
+}
+
+@-webkit-keyframes snow-float {
+    0% {bottom: 100%;}
+    50% {
+        -webkit-transform: rotate(1080deg);
+           -moz-transform: rotate(1080deg);
+                transform: rotate(1080deg);
+    }
+    100% {
+        -webkit-transform: rotate(0deg) translate3d(50px, 50px, 50px);
+           -moz-transform: rotate(0deg) translate3d(50px, 50px, 50px);
+                transform: rotate(0deg) translate3d(50px, 50px, 50px);
+    }
+}
+@-moz-keyframes snow-float {
+    0% {bottom: 100%;}
+    50% {
+        -webkit-transform: rotate(1080deg);
+           -moz-transform: rotate(1080deg);
+                transform: rotate(1080deg);
+    }
+    100% {
+        -webkit-transform: rotate(0deg) translate3d(50px, 50px, 50px);
+           -moz-transform: rotate(0deg) translate3d(50px, 50px, 50px);
+                transform: rotate(0deg) translate3d(50px, 50px, 50px);
+    }
+}
+@keyframes snow-float {
+    0% {bottom: 100%;}
+    50% {
+        -webkit-transform: rotate(1080deg);
+           -moz-transform: rotate(1080deg);
+                transform: rotate(1080deg);
+    }
+    100% {
+        -webkit-transform: rotate(0deg) translate3d(50px, 50px, 50px);
+           -moz-transform: rotate(0deg) translate3d(50px, 50px, 50px);
+                transform: rotate(0deg) translate3d(50px, 50px, 50px);
+    }
+}
