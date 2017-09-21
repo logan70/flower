@@ -66,7 +66,9 @@ var box = document.querySelector('.box'),
 	// 获取第二屏左边门
 	doorLeft = document.querySelector('.screen-2__door-left'),
 	// 获取第二屏右边门
-	doorRight = document.querySelector('.screen-2__door-right');
+	doorRight = document.querySelector('.screen-2__door-right'),
+	// 获取女孩元素
+	girl = document.querySelector('.screen-3__girl');
 
 // 页面初始宽高设置
 var screenDefault = (function(){
@@ -93,15 +95,18 @@ var screenScrollTo = function(x,time,delay){
 }
 
 // 小男孩的初始位置函数
-var boyPosition = function(){
-	// 获取第一屏的高度
-	var _height = document.querySelector('.screen-1').offsetHeight;
+var boyPosition = (function(){
 	// 设置男孩距离底部的位置
-	var boyDefaultTop = height - _height * 0.18 - boy.offsetHeight + 'px';
+	var boyDefaultTop = height * 0.82 - boy.offsetHeight + 'px';
 	boy.style.top =boyDefaultTop;
-	return boyDefaultTop;
-}
-boyPosition();
+})();
+
+// 小女孩的初始位置函数
+var girlPosition = (function(){
+	// 设置男孩距离底部的位置
+	var girlDefaultTop = height * 0.72 - girl.offsetHeight + 'px';
+	girl.style.top =girlDefaultTop;
+})();
 
 // 小男孩动画函数
 var boyWalking = function(){
@@ -112,12 +117,13 @@ var boyWalking = function(){
 var boyMoveTo = function(x,y,time){
 	boy.style.transitionDuration = time + 'ms';
 	boy.style.left = boy.offsetLeft + x + 'px';
-	boy.style.top = boyPosition() + y + 'px';
+	boy.style.top = boy.offsetTop + y + 'px';
 }
 
 // 小男孩停止走路函数
 var boyStopWalking = function(){
 	removeClass(boy,'boy_status_walking');
+	removeClass(boy,'boy_status_flower');
 }
 
 // 太阳落山函数
@@ -199,17 +205,62 @@ var shopIn = function(){
 		doorClose();
 		setTimeout(lampDark,2000);
 	},7000)
+	//进出商店用时9s
 }
 
 window.onload = function(){
-	//页面载入后小男孩加入动画
+	// 小男孩加入动画
 	boyWalking();
+	// 云朵加入动画
 	cloudMove();
+	// 太阳加入动画
 	sunMove();
-	boyMoveTo(620,0,5000);
-	screenScrollTo(width,4000,1000);
-	setTimeout(shopIn,5000);
+	// 小男孩3s走到相对商店位置
+	// 截至目前，共用时3s
+	boyMoveTo((width/2.2),0,3000);
+	// 屏幕延迟3s后用时4s走到相对商店位置
+	// 截至目前，共用时7s
+	screenScrollTo(width,4000,3000);
+	// 7s后男孩进入商店动画
+	// 商店开门2s，男孩进入2s，男孩商店内停留1s，男孩出来2s，商店关门2s
+	// 商店动画共用时9s
+	// 截至目前，共用时16s
+	setTimeout(shopIn,7000);
+	// 16s后用时4s男孩走至桥前，屏幕移动到第三屏
+	// 截至目前，共用时20s
+	setTimeout(function(){
+		boyMoveTo((-width*0.366),0,4000);
+		screenScrollTo(width*2,4000,0);
+	},16000)
+	// 20s后用时1.5s男孩走至桥上
+	// 截至目前，共用时21.5s
+	setTimeout(function(){
+		boyMoveTo((width*0.1),(girl.offsetTop-boy.offsetTop),1500);
+		
+	},20000)
+	// 21.5s后用时1.5s男孩走至女孩面前
+	// 截至目前，共用时23s
+	setTimeout(function(){
+		boyMoveTo((width*0.15),0,1500);
+	},21500)
+	// 23s后男孩停止走路，并停留一秒
+	// 截至目前，共用时24s
+	setTimeout(function(){
+		boy.style.backgroundPosition = '-150px -0px';
+		boyStopWalking();
+	},23000)
+	// 24s后用时1s男孩女孩转身
+	// 截至目前，共用时25s
+	setTimeout(function(){
+		// 男孩转身
+		addClass(boy,'boy_status_turn');
+		//女孩转身
+		addClass(girl,'screen-3__girl_status_turn');
+	},24000)
 }
+
+
+
 var isDoorOpen = false,
 	isLampBright = false;
 
