@@ -163,11 +163,17 @@ var lampDark = function(){
 // 进出商店
 var shopIn = function(){
 	var shopLeft = document.querySelector('.screen-2__shop').offsetLeft,
+		shopTop = document.querySelector('.screen-2__shop').offsetTop,
 		doorLeft = document.querySelector('.screen-2__door').offsetLeft,
 		doorWidth = document.querySelector('.screen-2__door').offsetWidth,
+		doorTop = document.querySelector('.screen-2__door').offsetTop,
+		doorHeight = document.querySelector('.screen-2__door').offsetHeight,
 		boyLeft = boy.offsetLeft,
 		boyWidth = boy.offsetWidth,
-		distance = doorLeft + shopLeft + doorWidth/2 - boyLeft - boyWidth/2;
+		boyTop = boy.offsetTop,
+		boyHeight = boy.offsetHeight,
+		distanceX = doorLeft + shopLeft + doorWidth/2 - boyLeft - boyWidth/2,
+		distanceY = doorTop + shopTop + doorHeight - (boyTop + boyHeight);
 	// 男孩停止走路
 	boyStopWalking();
 	// 商店开门
@@ -177,7 +183,7 @@ var shopIn = function(){
 		// 共用时2000ms
 		lampBright();
 		boyWalking();
-		boyMoveTo(distance,0,2000);
+		boyMoveTo(distanceX,distanceY,2000);
 		boy.style.webkitTransform = 'scale(0.3,0.3)';
 		boy.style.mozTransform = 'scale(0.3,0.3)';
 		boy.style.transform = 'scale(0.3,0.3)';
@@ -193,6 +199,7 @@ var shopIn = function(){
 		bird.style.transform = 'translate3d(-' + (width + 100) + 'px,0px,0px)';
 		// 共用时2000ms
 		boyStopWalking();
+		boyMoveTo(0,-distanceY,2000);
 		addClass(boy,'boy_status_flower');
 		boy.style.webkitTransform = 'scale(1,1)';
 		boy.style.mozTransform = 'scale(1,1)';
@@ -208,7 +215,91 @@ var shopIn = function(){
 	//进出商店用时9s
 }
 
+// 飘花动画
+// 图片路径
+var snowURl = [
+        './images/snowflake/snowflake1.png',
+        './images/snowflake/snowflake2.png',
+        './images/snowflake/snowflake3.png',
+        './images/snowflake/snowflake4.png',
+        './images/snowflake/snowflake5.png',
+        './images/snowflake/snowflake6.png'
+    ],
+    snowIndex = 0;
+
+// 飘花函数
+function snowFloat() {
+
+    // 随机六张图
+    function getURL() {
+        return snowURl[[Math.floor(Math.random() * 6)]];
+    }
+    // 创建一个雪花元素
+    function createSnow() {
+        var url = getURL();
+        // 新建一个div
+        var snowItem = document.createElement('div');
+        snowItem.className = 'snow__item';
+        snowItem.style.backgroundImage = 'url(' + url + ')';
+        return snowItem;
+    }
+    // 开始飘花
+    setInterval(function() {
+        // 运动的轨迹
+        var startPositionLeft = Math.random() * width,
+            startOpacity    = 1,
+            endPositionTop  = height - 40,
+            endPositionLeft = startPositionLeft - 100 + Math.random() * 500,
+            duration        = Math.random() * 5 + 5 + 's',
+    		// 雪花容器
+            snowBox         = document.querySelector('.snow') ;
+
+        // 随机透明度，不小于0.5
+        var randomStart = Math.floor(Math.random()*6+5)/10;
+
+        // 创建一个雪花
+        var newSnowItem = createSnow();
+
+        // 设计起点位置
+        newSnowItem.style.position = 'absolute';
+        newSnowItem.style.left = startPositionLeft + 'px';
+        newSnowItem.style.opacity = randomStart;
+
+        // 加入到容器
+        snowBox.appendChild(newSnowItem);
+
+        // 开始执行动画
+        newSnowItem.style.transitionDuration =duration;
+        setTimeout(function(){
+        	newSnowItem.style.left = endPositionLeft + 'px';
+        newSnowItem.style.top = endPositionTop + 'px';
+        newSnowItem.style.opacity = 0.7;
+        },100)
+        setTimeout(function(){
+        	snowBox.removeChild(newSnowItem);
+        },10000)
+        
+        
+    }, 200);
+}
+
+// 音乐函数
+var playMusic = function(){
+	var audio1 = document.querySelector('.audio1'),
+		audio2 = document.querySelector('.audio2');
+	// 播放音乐1
+	audio1.play();
+	setTimeout(function(){
+		// 暂停音乐1
+		audio1.pause();
+		// 播放音乐2
+		audio2.play();
+	},26000)
+}
+
 window.onload = function(){
+	// 加入音乐
+	playMusic();
 	// 小男孩加入动画
 	boyWalking();
 	// 云朵加入动画
@@ -231,54 +322,33 @@ window.onload = function(){
 	setTimeout(function(){
 		boyMoveTo((-width*0.366),0,4000);
 		screenScrollTo(width*2,4000,0);
-	},16000)
+	},16000);
 	// 20s后用时1.5s男孩走至桥上
 	// 截至目前，共用时21.5s
 	setTimeout(function(){
 		boyMoveTo((width*0.1),(girl.offsetTop-boy.offsetTop),1500);
-		
-	},20000)
-	// 21.5s后用时1.5s男孩走至女孩面前
-	// 截至目前，共用时23s
+	},20000);
+	// 21.5s后用时2s男孩走至女孩面前
+	// 截至目前，共用时23.5s
 	setTimeout(function(){
-		boyMoveTo((width*0.15),0,1500);
-	},21500)
-	// 23s后男孩停止走路，并停留一秒
-	// 截至目前，共用时24s
+		boyMoveTo((girl.offsetLeft-boy.offsetLeft-boy.offsetWidth*.5),0,2000);
+	},21500);
+	// 23.5s后男孩停止走路，并停留一秒
+	// 截至目前，共用时24.5s
 	setTimeout(function(){
 		boy.style.backgroundPosition = '-150px -0px';
 		boyStopWalking();
-	},23000)
-	// 24s后用时1s男孩女孩转身
-	// 截至目前，共用时25s
+	},23500);
+	// 24.5s后用时1s男孩女孩转身
+	// 截至目前，共用时25.5s
 	setTimeout(function(){
 		// 男孩转身
 		addClass(boy,'boy_status_turn');
 		//女孩转身
 		addClass(girl,'screen-3__girl_status_turn');
-	},24000)
+	},24500);
+	// 25.5s后开始飘花
+	setTimeout(snowFloat,25500);
 }
 
-
-
-var isDoorOpen = false,
-	isLampBright = false;
-
-btn.onclick = function(){
-
-	if (isDoorOpen === false) {
-		doorOpen();
-		isDoorOpen = true;
-	}else{
-		doorClose();
-		isDoorOpen = false;
-	}
-
-	if (isLampBright === false) {
-		lampBright();
-		isLampBright = true;
-	}else{
-		lampDark();
-		isLampBright = false;
-	}
-}
+// H5+CSS3+原生JS七夕送发
