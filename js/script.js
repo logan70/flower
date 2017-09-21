@@ -241,7 +241,7 @@ window.onload = function(){
 	// 21.5s后用时1.5s男孩走至女孩面前
 	// 截至目前，共用时23s
 	setTimeout(function(){
-		boyMoveTo((width*0.15),0,1500);
+		boyMoveTo((girl.offsetLeft-boy.offsetLeft-boy.offsetWidth*.5),0,1500);
 	},21500)
 	// 23s后男孩停止走路，并停留一秒
 	// 截至目前，共用时24s
@@ -282,3 +282,4 @@ btn.onclick = function(){
 		isLampBright = false;
 	}
 }
+H5+CSS3+原生JS七夕送发

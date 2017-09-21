@@ -2,9 +2,9 @@
 /* 主屏滚动效果设置 */
 .boy,
 .screen{
-	-webkit-transition-property: all;
-	   -moz-transition-property: all;
-	        transition-property: all;
+	-webkit-transition-property: left,top,transform
+	   -moz-transition-property: left,top,transform
+	        transition-property: left,top,transform
 	-webkit-transition-timing-function: linear;
 	   -moz-transition-timing-function: linear;
 	        transition-timing-function: linear;
