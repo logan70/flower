@@ -198,6 +198,7 @@ var shopIn = function(){
 		bird.style.mozTransform = 'translate3d(-' + (width + 100) + 'px,0px,0px)';
 		bird.style.transform = 'translate3d(-' + (width + 100) + 'px,0px,0px)';
 		// 共用时2000ms
+		boy.style.backgroundPosition = '-150px -0px';
 		boyStopWalking();
 		boyMoveTo(0,-distanceY,2000);
 		addClass(boy,'boy_status_flower');
@@ -336,7 +337,6 @@ window.onload = function(){
 	// 23.5s后男孩停止走路，并停留一秒
 	// 截至目前，共用时24.5s
 	setTimeout(function(){
-		boy.style.backgroundPosition = '-150px -0px';
 		boyStopWalking();
 	},23500);
 	// 24.5s后用时1s男孩女孩转身
