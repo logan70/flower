@@ -139,3 +139,114 @@
     right: -91px;
     background: url('../images/bird.png') -182px 0px no-repeat;
 }
+
+/* 第三屏女孩 */
+.screen-3__girl{
+	background: url('../images/girl.png') -755px -0px no-repeat;
+    position: absolute;
+    right: 40%;
+    top: 37%;
+    width: 151px;
+    height: 291px;
+}
+
+/* 第三屏波浪 */
+.screen-3__wave-wrap{
+	position: absolute;
+    width: 41%;
+    height: 24%;
+    left: 29.5%;
+    top: 76%;
+    overflow: hidden;
+}
+
+.screen-3__wave{
+	width: 100%;
+    height: 100%;
+}
+
+.screen-3__wave-1,
+.screen-3__wave-2,
+.screen-3__wave-3,
+.screen-3__wave-4{
+	width: 100%;
+    position: absolute;
+    height: 50%;
+}
+
+.screen-3__wave-1{
+	width: 131px;
+    height: 15px;
+    top: 13%;
+    left: 35%;
+    background: url('../images/water.png') -261px -0px no-repeat;
+}
+.screen-3__wave-2{
+	width: 161px;
+    height: 9px;
+    top: 30%;
+    left: 45%;
+    background: url('../images/water.png') -693px -0px no-repeat;
+}
+
+.screen-3__wave-3{
+	width: 261px;
+    height: 29px;
+    top: 50%;
+    left: 15%;
+    background: url('../images/water.png') -0px -0px no-repeat;
+}
+
+.screen-3__wave-4{
+	width: 301px;
+    height: 12px;
+    top: 75%;
+    left: 30%;
+    background: url('../images/water.png') -392px -0px no-repeat;
+}
+
+/* 第三屏星星 */
+.screen-3__stars{
+	width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.screen-3__stars__item{
+	position: absolute;
+    width: 30px;
+    height: 31px;
+    background: url('../images/stars.png') left top  no-repeat;
+}
+
+.screen-3__stars1{
+	top: 20%;
+	left: 30%;
+}
+
+.screen-3__stars2{
+    top: 15%;
+    left: 20%;
+}
+
+.screen-3__stars3{
+    top: 25%;
+    left: 85%;
+}
+
+.screen-3__stars4{
+    top: 30%;
+    left: 70%;
+}
+
+.screen-3__stars5{
+    top: 25%;
+    left: 20%;
+}
+
+.screen-3__stars6{
+    top: 10%;
+    left: 65%;
+}

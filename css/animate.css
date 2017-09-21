@@ -173,3 +173,197 @@
 	75% { background-position: -91px 0px; }
 	100% { background-position: -182px 0px; }
 }
+
+/* 第三屏 波浪动画 */
+.screen-3__wave-1,
+.screen-3__wave-2,
+.screen-3__wave-3,
+.screen-3__wave-4{
+	-webkit-animation: wave 40s linear infinite;
+	   -moz-animation: wave 40s linear infinite;
+	        animation: wave 40s linear infinite;
+}
+
+.screen-3__wave-2{
+	-webkit-animation-delay: 2s;
+	   -moz-animation-delay: 2s;
+	        animation-delay: 2s;
+}
+
+.screen-3__wave-3{
+	-webkit-animation-delay: 1s;
+	   -moz-animation-delay: 1s;
+	        animation-delay: 1s;
+}
+
+.screen-3__wave-4{
+	-webkit-animation-delay: 3s;
+	   -moz-animation-delay: 3s;
+	        animation-delay: 3s;
+}
+
+@-webkit-keyframes wave {
+    0%,
+    100% {
+    	-webkit-transform: translate3d(0, 0, 0);
+    	   -moz-transform: translate3d(0, 0, 0);
+    	        transform: translate3d(0, 0, 0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+    	-webkit-transform: translate3d(-30px, 0px, 0);
+    	   -moz-transform: translate3d(-30px, 0px, 0);
+    	        transform: translate3d(-30px, 0px, 0);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+    	-webkit-transform: translate3d(30px, 0px, 0);
+    	   -moz-transform: translate3d(30px, 0px, 0);
+    	        transform: translate3d(30px, 0px, 0);
+    }
+}
+
+@-moz-keyframes wave {
+    0%,
+    100% {
+    	-webkit-transform: translate3d(0, 0, 0);
+    	   -moz-transform: translate3d(0, 0, 0);
+    	        transform: translate3d(0, 0, 0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+    	-webkit-transform: translate3d(-30px, 0px, 0);
+    	   -moz-transform: translate3d(-30px, 0px, 0);
+    	        transform: translate3d(-30px, 0px, 0);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+    	-webkit-transform: translate3d(30px, 0px, 0);
+    	   -moz-transform: translate3d(30px, 0px, 0);
+    	        transform: translate3d(30px, 0px, 0);
+    }
+}
+
+@keyframes wave {
+    0%,
+    100% {
+    	-webkit-transform: translate3d(0, 0, 0);
+    	   -moz-transform: translate3d(0, 0, 0);
+    	        transform: translate3d(0, 0, 0);
+    }
+    10%,
+    30%,
+    50%,
+    70%,
+    90% {
+    	-webkit-transform: translate3d(-30px, 0px, 0);
+    	   -moz-transform: translate3d(-30px, 0px, 0);
+    	        transform: translate3d(-30px, 0px, 0);
+    }
+    20%,
+    40%,
+    60%,
+    80% {
+    	-webkit-transform: translate3d(30px, 0px, 0);
+    	   -moz-transform: translate3d(30px, 0px, 0);
+    	        transform: translate3d(30px, 0px, 0);
+    }
+}
+
+/* 第三屏 星星动画 */
+.screen-3__stars__item{
+	-webkit-animation: star-flash 5s ease-in-out infinite alternate;
+	   -moz-animation: star-flash 5s ease-in-out infinite alternate;
+	        animation: star-flash 5s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes star-flash {
+    0%, 50%, 100% {opacity: 1;}
+    25%, 75% {opacity: 0;}
+}
+@-moz-keyframes star-flash {
+    0%, 50%, 100% {opacity: 1;}
+    25%, 75% {opacity: 0;}
+}
+@keyframes star-flash {
+    0%, 50%, 100% {opacity: 1;}
+    25%, 75% {opacity: 0;}
+}
+
+/* 第三屏 女孩转身 */
+.screen-3__girl_status_turn{
+	-webkit-animation: girl-turn 1s step-start 1 forwards;
+	   -moz-animation: girl-turn 1s step-start 1 forwards;
+	        animation: girl-turn 1s step-start 1 forwards;
+}
+@-webkit-keyframes girl-turn {
+    0% {background-position: -604px -0px;}
+    16.7% {background-position: -151px -0px;}
+    33.4% {background-position: -906px -0px;}
+    50.1% {background-position: -0px -0px;}
+    66.8% {background-position: -302px -0px;}
+    83.5% {background-position: -453px -0px;}
+    100% {background-position: -604px -0px;}
+}
+@-moz-keyframes girl-turn {
+    0% {background-position: -604px -0px;}
+    16.7% {background-position: -151px -0px;}
+    33.4% {background-position: -906px -0px;}
+    50.1% {background-position: -0px -0px;}
+    66.8% {background-position: -302px -0px;}
+    83.5% {background-position: -453px -0px;}
+    100% {background-position: -604px -0px;}
+}
+@keyframes girl-turn {
+    0% {background-position: -604px -0px;}
+    16.7% {background-position: -151px -0px;}
+    33.4% {background-position: -906px -0px;}
+    50.1% {background-position: -0px -0px;}
+    66.8% {background-position: -302px -0px;}
+    83.5% {background-position: -453px -0px;}
+    100% {background-position: -604px -0px;}
+}
+
+/* 男孩转身 */
+.boy_status_turn{
+	-webkit-animation: boy-turn 1s step-start 1 forwards;
+	   -moz-animation: boy-turn 1s step-start 1 forwards;
+	        animation: boy-turn 1s step-start 1 forwards;
+}
+@-webkit-keyframes boy-turn {
+	0% {background-position: -603px -291px;}
+	16.7% {background-position: -150px -0px;}
+	33.4% {background-position: -453px -291px;}
+	50.1% {background-position: -0px -0px;}
+	66.8% {background-position: -903px -291px;}
+	83.5% {background-position: -753px -291px;}
+	100% {background-position: -603px -291px;}
+}
+@-moz-keyframes boy-turn {
+	0% {background-position: -603px -291px;}
+	16.7% {background-position: -150px -0px;}
+	33.4% {background-position: -453px -291px;}
+	50.1% {background-position: -0px -0px;}
+	66.8% {background-position: -903px -291px;}
+	83.5% {background-position: -753px -291px;}
+	100% {background-position: -603px -291px;}
+}
+@keyframes boy-turn {
+	0% {background-position: -603px -291px;}
+	16.7% {background-position: -150px -0px;}
+	33.4% {background-position: -453px -291px;}
+	50.1% {background-position: -0px -0px;}
+	66.8% {background-position: -903px -291px;}
+	83.5% {background-position: -753px -291px;}
+	100% {background-position: -603px -291px;}
+}
